@@ -10,11 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_15_071224) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_15_073125) do
   create_table "class_details", force: :cascade do |t|
     t.text "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  create_table "class_feedbacks", force: :cascade do |t|
+    t.integer "rating"
+    t.text "comment"
+    t.integer "class_detail_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["class_detail_id"], name: "index_class_feedbacks_on_class_detail_id"
+  end
+
+  add_foreign_key "class_feedbacks", "class_details"
 end
