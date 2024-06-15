@@ -1,5 +1,4 @@
 class ClassFeedbacksController < ApplicationController
-
   def new
     @class_feedback = ClassFeedback.new
   end
