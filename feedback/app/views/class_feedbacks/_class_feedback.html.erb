@@ -1,5 +1,5 @@
-<% @class_feedbacks.each do |feedback| %>
-    <%= feedback.rating %>
-    <%= feedback.comment %>
-    <%= feedback.class_detail.name %>
-<% end %>
+<div id="<%= dom_id class_feedback %>>">
+  <%= class_feedback.rating %>
+  <%= class_feedback.comment %>
+  <%= class_feedback.class_detail.name %>
+</div>
