@@ -1,4 +1,9 @@
 <h1>Home#index <%= @name %></h1>
 <p>Find me in app/views/home/index.html.erb</p>
-<%= link_to "new", class_feedbacks_new_path %>
-<%= render @class_feedbacks %>
+<%= turbo_frame_tag "new_feedback" do %>
+  <%= link_to "new", class_feedbacks_new_path %>
+<% end %>
+
+<div id="class-feedbacks">
+  <%= render @class_feedbacks %>
+</div>
