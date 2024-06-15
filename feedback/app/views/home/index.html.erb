@@ -4,6 +4,8 @@
   <%= link_to "new", class_feedbacks_new_path %>
 <% end %>
 
+<%= turbo_stream_from "new_class_feedback" %>
+
 <div id="class-feedbacks">
   <%= render @class_feedbacks %>
 </div>
