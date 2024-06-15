@@ -1,0 +1,5 @@
+<% @class_feedbacks.each do |feedback| %>
+    <%= feedback.rating %>
+    <%= feedback.comment %>
+    <%= feedback.class_detail.name %>
+<% end %>
