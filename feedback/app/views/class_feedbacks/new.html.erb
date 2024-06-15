@@ -1,9 +1,11 @@
 <h1>ClassFeedbacks#new</h1>
 <%= link_to "back", home_index_path %>
 
-<%= form_with model: @class_feedback do |form| %>
+<%= form_with model: @class_feedback, url: class_feedbacks_create_path, method: :post do |form| %>
   <%= form.text_field :rating %>
   <%= form.text_area :comment, size: "60x10" %>
+  <%= form.select :class_detail_id, ClassDetail.all.map { |c| [c.name, c.id] } %>
+
   <%= form.submit %>
 <% end %>
 
