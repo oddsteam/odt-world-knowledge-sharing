@@ -13,3 +13,36 @@
  *= require_tree .
  *= require_self
  */
+.center {
+  margin: auto;
+  width: 50%;
+  padding: 5px;
+  font-size: x-large;
+  text-align: center;
+}
+.textbox {
+  width: 50%;
+  height: 80px;
+  padding: 5px;
+  margin: auto;
+}
+
+.textbox textarea {
+  width: 100%;
+  height: 100%;
+}
+
+.star-radio {
+  display: none;
+}
+
+.star-radio:checked + .star-label {
+  color: orange;
+}
+.star-label:has(~ .star-radio:checked) {
+  color: orange;
+}
+
+.star-radio + .star-label:hover {
+  color: darkorange;
+}

@@ -2,12 +2,23 @@
 
 <%= turbo_frame_tag "new_feedback" do %>
   <%= link_to "back", home_index_path %>
-  <%= form_with model: @class_feedback, url: class_feedbacks_create_path, method: :post do |form| %>
-    <%= form.text_field :rating %>
-    <%= form.text_area :comment, size: "60x10" %>
-    <%= form.select :class_detail_id, ClassDetail.all.map { |c| [c.name, c.id] } %>
+  <%= form_with model: @class_feedback, local: true, url: class_feedbacks_create_path, method: :post do |form| %>
+    <div class = center >
 
-    <%= form.submit %>
+      <% 1.upto 5 do |rating_number| %>
+        <%= form.radio_button :rating, rating_number, id:"star#{rating_number}", class: "star-radio" %>
+        <%= form.label '', '', for: "star#{rating_number}", class:"fa fa-star star-label" %>
+      <% end %>
+    </div>
+    <div class = textbox >
+      <%= form.text_area :comment %>
+    </div>
+    <div>
+      <%= form.select :class_detail_id, ClassDetail.all.map { |c| [c.name, c.id] } %>
+    </div>
+    <div>
+      <%= form.submit %>
+    </div>
   <% end %>
 <% end %>
 
