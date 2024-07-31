@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get 'class_feedbacks/new'
   post 'class_feedbacks/create'
   get 'home/index'
+  get 'thank_you', to: 'thank#thank_you'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

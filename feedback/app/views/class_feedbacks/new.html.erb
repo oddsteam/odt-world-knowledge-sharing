@@ -1,11 +1,10 @@
-<h1>ClassFeedbacks#new</h1>
 
-<%= turbo_frame_tag "new_feedback" do %>
   <%= link_to "back", home_index_path %>
   <%= form_with model: @class_feedback, local: true, url: class_feedbacks_create_path, method: :post do |form| %>
  
     <div class = background >
-    <h1>Feedback Form</h1>
+    <div class = h > 👋🏻 Feedback Form</div>
+    <hr></hr>
         <div >
              <%= form.select :class_detail_id, ClassDetail.all.map { |c| [c.name, c.id] } %>
         </div>
@@ -17,16 +16,16 @@
             <% end %>
           </div>
         <div class = textbox >
-          <p> What do you want to tell us about this class? (optional) </p>
+          <p> What do you want to tell us about this class? (opt.) </p>
           <%= form.text_area :comment %>
           </div>
 
-            <div class = center >
-            <%= form.submit %>
+            <div>
+              <%= form.submit "Submit",class: "submit-button"%>
               </div>
     </div>
  
   <% end %>
-<% end %>
+
 
 
