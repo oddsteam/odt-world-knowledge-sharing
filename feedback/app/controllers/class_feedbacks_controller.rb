@@ -1,6 +1,7 @@
 class ClassFeedbacksController < ApplicationController
   def new
     @class_feedback = ClassFeedback.new
+    @class_feedback.class_detail_id = params[:class_id]
   end
 
   def create

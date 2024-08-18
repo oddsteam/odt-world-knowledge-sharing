@@ -1,11 +1,9 @@
-<h1>Home#index <%= @name %></h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<h1>ODDS-TEAM </h1>
 
-  <%= link_to "new", class_feedbacks_new_path %>
 
 
 <%= turbo_stream_from "new_class_feedback" %>
 
 <div id="class-feedbacks">
-  <%= render @class_feedbacks %>
+  <%= render @class_list %>
 </div>
