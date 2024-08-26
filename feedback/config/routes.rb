@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  namespace :api do
+    get 'class_feedbacks/index'
+  end
   get 'class_feedbacks/new'
   post 'class_feedbacks/create'
   get 'home/index'
@@ -11,4 +14,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+  scope 'api' do
+    get 'class_feedbacks', to: 'class_feedback#index'
+  end
 end
