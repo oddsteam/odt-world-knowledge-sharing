@@ -8,7 +8,8 @@ class ClassFeedbacksController < ApplicationController
     puts params
     puts params[:rating]
     puts params[:comment]
-    class_feedback_params = params.require(:class_feedback).permit(:rating, :comment, :class_detail_id)
+    puts params[:recommend]
+    class_feedback_params = params.require(:class_feedback).permit(:rating , :recommend, :comment, :class_detail_id)
     @class_feedback = ClassFeedback.new(class_feedback_params)
     # respond_to do |format|
     if @class_feedback.save

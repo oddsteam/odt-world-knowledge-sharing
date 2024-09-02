@@ -52,16 +52,16 @@
 }
 
 
-.background {
+.inputfeedback {
     height: auto;
     width: auto;
     border: 8px ;
-    padding: 10px;
+    padding: 6px;
     margin: 20px;
-    background-color:  ;
     text-align: center;
     border-radius: 10px;
     border: solid lightgray;
+    background-color: white;
   }
 
 .h{
@@ -97,4 +97,8 @@ hr {
 
 .text-left{
   text-align: left;
+}
+
+body {
+  background-image : url("Background.svg") ;
 }
