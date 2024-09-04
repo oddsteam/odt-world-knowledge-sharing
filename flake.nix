@@ -12,14 +12,14 @@
       ${system}.default = nixpkgs.legacyPackages.${system}.mkShell {
         buildInputs = with nixpkgs.legacyPackages.${system}; [
           ruby_3_3
-          playwright
-          playwright-driver
+          # playwright
+          # playwright-driver
         ];
 
-        shellHook = ''
-          export PLAYWRIGHT_BROWSERS_PATH=${nixpkgs.legacyPackages.${system}.playwright-driver.browsers}
-          export PLAYWRIGHT_SKIP_VALIDATE_HOST_REQUIREMENTS=true
-        '';
+        # shellHook = ''
+        #   export PLAYWRIGHT_BROWSERS_PATH=${nixpkgs.legacyPackages.${system}.playwright-driver.browsers}
+        #   export PLAYWRIGHT_SKIP_VALIDATE_HOST_REQUIREMENTS=true
+        # '';
       };
     }) {} supportedSystems;
 
