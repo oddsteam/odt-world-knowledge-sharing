@@ -116,6 +116,7 @@ GEM
     ffi (1.17.0-x86_64-darwin)
     ffi (1.17.0-x86_64-linux-gnu)
     ffi (1.17.0-x86_64-linux-musl)
+    foreman (0.88.1)
     globalid (1.2.1)
       activesupport (>= 6.1)
     google-id-token (1.4.2)
@@ -377,6 +378,7 @@ DEPENDENCIES
   capybara
   debug
   dotenv
+  foreman
   google_sign_in
   importmap-rails
   jbuilder
