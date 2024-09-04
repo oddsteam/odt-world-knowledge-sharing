@@ -1,0 +1,38 @@
+<section class="w-full">
+    <div class="mx-auto py-24 sm:py-32">
+        <div class="mx-auto max-w-7xl px-6 lg:px-8">
+            <div class="mx-auto max-w-2xl text-center flex flex-row justify-center">
+                <img class="max-h-32 max-w-16" src="<%= image_url "logo-black.png" %>">
+            </div>
+            <div class="mx-auto mt-8 p-4 max-w-xl flex flex-col items-center border border-gray-300 rounded-md">
+                <form class="w-full flex flex-col gap-y-4 p-8 border-b">
+                    <div>
+                        <label for="username" class="block text-sm font-medium leading-6 text-gray-900">Username</label>
+                        <div class="mt-2">
+                            <input type="text" name="username" id="username" autocomplete="username" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-600 sm:text-sm sm:leading-6">
+                        </div>
+                    </div>
+                    <div>
+                        <label for="password" class="block text-sm font-medium leading-6 text-gray-900">Password</label>
+                        <div class="mt-2">
+                            <input type="password" name="password" id="password" autocomplete="" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-600 sm:text-sm sm:leading-6">
+                        </div>
+                    </div>
+                    <div class="w-full flex flex-row justify-end">
+                        <button type="submit" class="rounded-md bg-gray-600 px-3 py-2 min-w-28 text-sm font-semibold text-white shadow-sm hover:bg-gray-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-600">Login</button>
+                    </div>
+                </form>
+                <div class="w-full py-6 text-sm font-medium text-gray-500 flex flex-row items-center justify-center">
+                    <button onclick="alert('รอไปก่อน')" class="flex flex-row items-center font-semibold border rounded-md text-semibold" style="padding: 6px 8px;">
+                        <%= image_tag('google-logo.svg', alt: 'Google', width: 16, style: "margin-right: 6px;" ) %> Sign in with Google
+                    </button>
+                <!--
+                    <%= google_sign_in_button proceed_to: create_login_url, class: "flex flex-row items-center font-semibold border rounded-md text-semibold", style: "padding: 6px 8px;" do %>
+                        <%= image_tag('google-logo.svg', alt: 'Google', width: 16, style: "margin-right: 6px;" ) %>Sign in with Google
+                    <% end %>
+                -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
