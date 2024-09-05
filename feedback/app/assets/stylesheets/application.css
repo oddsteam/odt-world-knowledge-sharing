@@ -1,20 +1,7 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+
  :root {
     --star-color: yellow;
+    --heart-color:pink;
  }
 .center {
   margin: auto;
@@ -51,12 +38,28 @@
   color: var(--star-color);
 }
 
+.heart-radio {
+  display: none;
+
+}
+
+.heart-radio:checked + .heart-label {
+  color: var(--heart-color);
+}
+.heart-label:has(~ .heart-radio:checked, ~ .heart-label:hover) {
+  color: var(--heart-color);
+}
+
+.heart-radio + .heart-label:hover {
+  color: var(--heart-color);
+}
+
 
 .inputfeedback {
     height: auto;
     width: auto;
     border: 8px ;
-    padding: 6px;
+    padding: 10px;
     margin: 20px;
     text-align: center;
     border-radius: 10px;
@@ -78,8 +81,8 @@ hr {
   border: none;
   background-color: DodgerBlue;
   padding: 6px;
-  width: 80%;
-  height: 100%;
+  width: 20%;
+  height: 80%;
   color: white
 
 
@@ -102,3 +105,4 @@ hr {
 body {
   background-image : url("Background.svg") ;
 }
+

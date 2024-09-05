@@ -1,35 +1,47 @@
 
   <%= link_to "back", home_index_path %>
   <%= form_with model: @class_feedback, local: true, url: class_feedbacks_create_path, method: :post do |form| %>
-  <div class = inputfeedback >
-    <div class = h > 👋🏻 Feedback Form</div>
-    <hr></hr>
-        <div >
-             <%= form.select :class_detail_id, ClassDetail.all.map { |c| [c.name, c.id] } %>
+    <div class = inputfeedback >
+        <div class = h > 👋🏻 Feedback Form</div>
+        <hr></hr>
+            <div >
+                <%= form.select :class_detail_id, ClassDetail.all.map { |c| [c.name, c.id] } %>
+            </div>
+              <p> How would you rate the experience ? </p>
+                  <div class = center >
+                    <% 1.upto 5 do |rating_number| %>
+                      <%= form.radio_button :rating, rating_number, id:"star#{rating_number}", class: "star-radio" %>
+                      <%= form.label '', '', for: "star#{rating_number}", class:"fa fa-star star-label" %>
+                    <% end %>
+                  </div>
+                  <div>
+                    <p>Please rate your trainer</p>
+                        <div class = center >
+                          <% 1.upto 5 do |rating_trainer| %>
+                          <%= form.radio_button :rating_trainer, rating_trainer, id:"heart#{rating_trainer}", class: "heart-radio" %>
+                          <%= form.label '', '', for: "heart#{rating_trainer}", class:"fa fa-heart heart-label" %>
+                          <% end %>
+                        </div>
+                    </div>
+                  <div class = textbox >
+                    <p> What do you want to tell us about this class? (opt.) </p>
+                    <%= form.text_area :comment %>
+                            <div>
+                                <p> Would you recommend this class to others ? </p>
+                      
+                                <%= form.radio_button :recommend, true %>
+                                <%= form.label :autolyse, "Yes, definitel!", :recommend => "true"  %>
+                                <%= form.radio_button :recommend, false %>
+                                <%= form.label :autolyse, "No, Never", :recommend => "false" %>
+                            </div>
+                  
+                        <div>
+                            <%= form.submit "Submit",class: "submit-button"%>
+                        </div>
+
+                          </div>
+                
         </div>
-        <p> How would you rate the experience ? </p>
-         <div class = center >
-            <% 1.upto 5 do |rating_number| %>
-              <%= form.radio_button :rating, rating_number, id:"star#{rating_number}", class: "star-radio" %>
-              <%= form.label '', '', for: "star#{rating_number}", class:"fa fa-star star-label" %>
-            <% end %>
-          </div>
-
-          <p> Would you recommend this class to others </p>
-            <%= form.radio_button :recommend, true %>
-            <%= form.label :autolyse, "Yes, definitel!", :recommend => "true"  %>
-            <%= form.radio_button :recommend, false %>
-            <%= form.label :autolyse, "No, Never", :recommend => "false" %>
-
-        <div class = textbox >
-          <p> What do you want to tell us about this class? (opt.) </p>
-          <%= form.text_area :comment %>
-          </div>
-
-            <div>
-              <%= form.submit "Submit",class: "submit-button"%>
-              </div>
-    </div>
   <% end %>
 
 

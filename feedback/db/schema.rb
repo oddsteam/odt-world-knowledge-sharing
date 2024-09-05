@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_09_02_171001) do
+ActiveRecord::Schema[7.1].define(version: 2024_09_05_152920) do
   create_table "class_details", force: :cascade do |t|
     t.text "name"
     t.datetime "created_at", null: false
@@ -24,6 +24,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_02_171001) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "recommend"
+    t.integer "rating_trainer"
     t.index ["class_detail_id"], name: "index_class_feedbacks_on_class_detail_id"
   end
 
