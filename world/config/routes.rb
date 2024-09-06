@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-  get "" => "home#index"
+  root "home#index"
 
   post "login" => "session#create", as: :authentication
   get "login" => "session#login", as: :login
