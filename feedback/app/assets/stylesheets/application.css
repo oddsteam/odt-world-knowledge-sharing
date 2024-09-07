@@ -2,6 +2,7 @@
  :root {
     --star-color: yellow;
     --heart-color:pink;
+    font-family:sans-serif;
  }
 .center {
   margin: auto;
@@ -79,15 +80,18 @@ hr {
 .submit-button {
   border-radius: 10px;
   border: none;
-  background-color: DodgerBlue;
+  background-color: rgb(91, 36, 243);
   padding: 6px;
   width: 20%;
   height: 80%;
   color: white;
+  
 }
 
 .button:active {
   transform: translateY(4px);
+  background-color:rgb(212, 150, 253) ;
+
 }
 
 .text-left{

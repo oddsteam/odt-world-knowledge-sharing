@@ -1,5 +1,4 @@
 
-  <%= link_to "back", home_index_path %>
   <%= form_with model: @class_feedback, local: true, url: class_feedbacks_create_path, method: :post do |form| %>
     <div class = inputfeedback >
         <div class = h > 👋🏻 Feedback Form</div>
@@ -24,23 +23,20 @@
                         </div>
                     </div>
                   <div class = textbox >
-                    <p> What do you want to tell us about this class? (opt.) </p>
-                    <%= form.text_area :comment %>
+                      <p> What do you want to tell us about this class? (opt.) </p>
+                      <%= form.text_area :comment %>
                             <div>
                                 <p> Would you recommend this class to others? </p>
-                      
                                 <%= form.radio_button :recommend, true %>
                                 <%= form.label :autolyse, "Yes, definitel!", :recommend => "true"  %>
                                 <%= form.radio_button :recommend, false %>
                                 <%= form.label :autolyse, "No, Never", :recommend => "false" %>
                             </div>
-                  
-                        <div>
-                            <%= form.submit "Submit",class: "submit-button button"%>
-                        </div>
+                            <div>
+                                <%= form.submit "Submit",class: "submit-button button"%>
+                            </div>
 
-                          </div>
-                
+                  </div>  
         </div>
   <% end %>
 
