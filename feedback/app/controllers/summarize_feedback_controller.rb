@@ -14,7 +14,9 @@ class SummarizeFeedbackController < ApplicationController
         .count
       @courses_rating = ClassFeedback
       .select(:class_detail_id, 'ROUND( AVG(rating), 2 ) AS average_rating')
-      .where(class_detail_id: params[:class_detail_id])
+      .group(:class_detail_id)
+      .having(class_detail_id: params[:class_detail_id])
+      .first
     
     end
   end
