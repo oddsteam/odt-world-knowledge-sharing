@@ -1,9 +1,9 @@
 <h1>ODDS-TEAM </h1>
+    <%= turbo_stream_from "new_class_feedback" %>
+    <div>
+      <div id="class-feedbacks">
+        <%= render @class_list %>
+      </div>
+    </div>
 
-
-
-<%= turbo_stream_from "new_class_feedback" %>
-
-<div id="class-feedbacks">
-  <%= render @class_list %>
-</div>
+      

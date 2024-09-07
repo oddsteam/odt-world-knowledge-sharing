@@ -1,0 +1,49 @@
+  <%= form_with url: 'summarize_feedback', local: true, method: :post do |form| %>
+<body>
+<h1>Summarize Feedback</h1>
+         <div >
+                <div class = li>
+                        <div class = box >
+                            <p class = text-left >Record Count </p>
+                            <div class = text-center>
+                                <%= @record_count%>
+                                </div>
+                        </div>
+                        <div class = box >
+                            <p class = text-left>Avg Class Rating </p>
+                                <div class = text-center>
+
+                                </div>
+                            </div> 
+                        <div class = box >
+                            <p>Avg Trainer Rating</p>
+                        </div>
+                    </div>
+            </div>
+   <table>
+        <tr>
+            <div class = center >
+                <th>Class id </th>
+                <th>Submitted date</th>
+                <th>Class Rating</th>
+                <th>Trainer Rating</th>
+                <th>Comment</th>
+            </div>
+        </tr>
+   
+        <% @class_feedback.each do |class_feedback| %> 
+             <tr>
+                    <td><%= class_feedback.class_detail_id %> </td>
+                    <td><%= class_feedback.created_at %></td>
+                    <td><%= class_feedback.rating %></td>
+                    <td><%= class_feedback.rating_trainer %> </td>
+                    <td><%= class_feedback.comment %> </td>  
+            </tr>  
+        <% end %> 
+    </table>
+
+
+                    
+<% end %>
+
+</body>
