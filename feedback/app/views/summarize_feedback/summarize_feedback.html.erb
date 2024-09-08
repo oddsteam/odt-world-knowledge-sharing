@@ -3,41 +3,49 @@
 <h1>Summarize Feedback</h1>
          <div >
                 <div class = li>
-                        <div class = box >
-                            <p class = text-left >Record Count </p>
-                            <div class = text-center>
-                                <%= @record_count%>
-                                </div>
-                        </div>
+                        
                         <div class = box >
                             <p class = text-left>Avg Class Rating </p>
                                 <div class = text-center>
                                     <%= @courses_rating[:average_rating] %>
                                 </div>
-                            </div> 
+                        </div> 
                         <div class = box >
                             <p>Avg Trainer Rating</p>
+                        </div>
+                        <div class = box >
+                            <p class = text-left >Reccommend </p>
+                            <div class = text-center>
+                                <% @recommend%>
+                            </div>
+                        </div>
+                        <div class = box >
+                            <p class = text-left >Record Count </p>
+                            <div class = text-center>
+                                <%= @record_count%>
+                            </div>
                         </div>
                     </div>
             </div>
    <table>
         <tr>
             <div class = center >
-                <th>Class id </th>
                 <th>Submitted date</th>
                 <th>Class Rating</th>
                 <th>Trainer Rating</th>
                 <th>Comment</th>
+                <th>Recommend</th>
             </div>
         </tr>
    
         <% @class_feedback.each do |class_feedback| %> 
              <tr>
-                    <td><%= class_feedback.class_detail_id %> </td>
+            
                     <td><%= class_feedback.created_at %></td>
                     <td><%= class_feedback.rating %></td>
                     <td><%= class_feedback.rating_trainer %> </td>
                     <td><%= class_feedback.comment %> </td>  
+                    <td><%= class_feedback.recommend %> </td>
             </tr>  
         <% end %> 
     </table>

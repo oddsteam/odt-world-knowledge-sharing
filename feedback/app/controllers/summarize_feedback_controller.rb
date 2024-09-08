@@ -17,6 +17,9 @@ class SummarizeFeedbackController < ApplicationController
       .group(:class_detail_id)
       .having(class_detail_id: params[:class_detail_id])
       .first
+      @recommend = ClassFeedback
+      .where(class_detail_id: params[:class_detail_id])
+
     
     end
   end
