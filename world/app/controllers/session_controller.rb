@@ -3,10 +3,10 @@ class SessionController < ApplicationController
   end
 
   def create
-    @member = Member.find_by(login: params[:login])
+    @user = User.find_by(login: params[:login])
 
-    if !!@member && @member.authenticate(params[:password])
-      session[:user_id] = @member.id
+    if !!@user && @user.authenticate(params[:password])
+      session[:user_id] = @user.id
       redirect_to root_path
     else
       redirect_to login_path

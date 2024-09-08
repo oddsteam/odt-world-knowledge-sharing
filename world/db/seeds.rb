@@ -8,10 +8,10 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-Member.delete_all
-ActiveRecord::Base.connection.execute("DELETE FROM sqlite_sequence WHERE name='members';")
+User.delete_all
+ActiveRecord::Base.connection.execute("DELETE FROM sqlite_sequence WHERE name='users';")
 
-members = [
+users = [
     ["วิมลรัตน์", "คำเอี่ยม", "มะเฟือง", "wimonrat", "wimonrat123"],
     ["ชยพัทธ์", "แก้ววิไล", "วอลล์", "chayapat", "chayapat123"],
     ["อนันตญา", "ไชยสงคราม", "ไข่มุก", "anantaya", "anantaya123"],
@@ -24,14 +24,14 @@ members = [
     ["รัญชนา", "วีรภัทรเมธี", "เก๋", "ranchana", "ranchana123"]
 ]
 
-members.each do |member|
-    firstname, lastname, nickname, login, password = member
-    m = Member.new(
+users.each do |user|
+    firstname, lastname, nickname, login, password = user
+    u = User.new(
         firstname: firstname,
         lastname: lastname,
         nickname: nickname,
         login: login,
         password: password
     )
-    m.save
+    u.save
 end
