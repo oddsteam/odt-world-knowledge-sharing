@@ -7,6 +7,16 @@
                 </figure>
             </div>
             <div class="mx-auto mt-8 p-4 max-w-xl flex flex-col items-center border border-gray-300 rounded-md">
+                <% if flash %>
+                    <div class="flex flex-column gap-4 items-center">
+                    <% flash.each do |type, msg| %>
+                        <div class="rounded-md w-full bg-red-500 text-gray-200 py-4 px-6">
+                            <%= msg %>
+                        </div>
+                    <% end %>
+                    </div>
+                <% end %>
+
                 <form class="w-full flex flex-col gap-y-4 p-8 border-b" method="post" action="<%= new_user_session_path %>">
                     <div>
                         <label for="login" class="block text-sm font-medium leading-6 text-gray-900">Login</label>

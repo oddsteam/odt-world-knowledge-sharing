@@ -5,6 +5,13 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   # devise :omniauthable, omniauth_providers: [:twitter]
 
   def google_oauth2
+    allowed_domains = ENV["ALLOWED_DOMAINS"].split(",")
+    user_email_domain = request.env['omniauth.auth'].info.email.split('@').last
+    unless allowed_domains.include?(user_email_domain)
+      redirect_to new_user_session_path, alert: "Unauthorized domain. Please use a valid company email."
+      return
+    end
+
     @user = User.create_from_provider_data(request.env['omniauth.auth'])
     if @user.persisted?
       sign_in_and_redirect @user
