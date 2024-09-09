@@ -3,7 +3,7 @@
   <head>
     <title><%= content_for(:title) || "World" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -16,10 +16,41 @@
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script type="text/javascript">
+      document.addEventListener("turbo:load", function() {
+        handlePopups();
+      });
+
+      function handlePopups() {
+        $(document).click(function() {
+          $('[aria-haspopup="true"]').each(function(_, o) {
+            const popupButton = $(o);
+            const popupButtonId = popupButton.attr('id');
+            const popupMenu = $(`[aria-labelledby="${popupButtonId}"]`);
+            popupButton.attr('aria-expanded', false);
+            popupMenu.addClass('hidden').removeClass('block');
+          });
+        });
+        $('[aria-haspopup="true"]').click(function(e) {
+          e.stopPropagation();
+          const popupButton = $(this);
+          const nextExpandedState = popupButton.attr('aria-expanded') === 'false';
+          const popupButtonId = popupButton.attr('id');
+          const popupMenu = $(`[aria-labelledby="${popupButtonId}"]`);
+          popupButton.attr('aria-expanded', nextExpandedState);
+          if (nextExpandedState) {
+            popupMenu.removeClass('hidden').addClass('block');
+          } else {
+            popupMenu.removeClass('block').addClass('hidden');
+          }
+        });
+      }
+    </script>
   </head>
 
   <body>
-    <main class="container mx-auto mt-8 px-5 flex">
+    <main class="container min-w-full">
       <%= yield %>
     </main>
   </body>
