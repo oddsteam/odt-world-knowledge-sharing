@@ -5,31 +5,34 @@
                 <div class = li>
                         
                         <div class = box >
-                            <p class = text-left>Avg Class Rating </p>
-                                <div class = text-center>
-                                    <%= @courses_rating[:average_rating] %>
-                                </div>
+                            <p class = text-left >Avg Class Rating </p>
+                                <h2 class = text-center>
+                                    <%= @courses_rating[:average_rating] %> %
+                                </h2>
                         </div> 
                         <div class = box >
                             <p>Avg Trainer Rating</p>
+                                <h2 class = text-center >
+                                 <%= @trainer_rating[:average_trainer_rating] %> %
+                                </h2>
                         </div>
                         <div class = box >
                             <p class = text-left >Reccommend </p>
-                            <div class = text-center>
-                                <% @recommend%>
-                            </div>
+                            <h2 class = text-center >
+                                <%= @recommend %> %
+                            </h2>
                         </div>
                         <div class = box >
                             <p class = text-left >Record Count </p>
-                            <div class = text-center>
+                            <h2 class = text-center>
                                 <%= @record_count%>
-                            </div>
+                            </h2>
                         </div>
+            
                     </div>
-            </div>
    <table>
-        <tr>
-            <div class = center >
+        <tr class = text-center >
+            <div>
                 <th>Submitted date</th>
                 <th>Class Rating</th>
                 <th>Trainer Rating</th>
@@ -49,6 +52,7 @@
             </tr>  
         <% end %> 
     </table>
+    </div>
 
 
                     
