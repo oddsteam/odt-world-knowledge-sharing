@@ -1,4 +1,5 @@
-<ul>
-    <li><%= link_to "Logout", :logout %></li>
-</ul><br><br>
+
+<% if user_signed_in? %>
+<%= button_to "Sign out", destroy_user_session_path, method: :delete, data: { turbo_method: :delete } %><br>
+<% end %>
 Home
