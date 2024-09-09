@@ -15,3 +15,11 @@ In development environment, I have provided some mock data which can be imported
 ```
 
 More detail about nix, visit [nixos.org](https://nixos.org/).
+
+### Sign in with Google
+
+```ini
+GOOGLE_CLIENT_ID=<google client id from google console>
+GOOGLE_CLIENT_SECRET=<google client secret from google console>
+ALLOWED_DOMAINS=odds.team
+```
