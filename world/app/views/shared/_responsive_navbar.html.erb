@@ -41,14 +41,16 @@
                 </svg>
             </button>
         </div>
-        <div class="flex-shrink-0"><img class="h-8 w-auto" src="<%= image_url "logo-black.png" %>" alt="ODT"></div>
-        <div class="hidden lg:block">
-            <nav>
-                <ul class="flex flex-row space-x-4">
-                    <li><a href="#" class="block p-2 font-medium text-gray-900 w-full hover:bg-slate-300 hover:rounded-md hover:text-gray-600">Classes</a></li>
-                    <li><a href="#" class="block p-2 font-medium text-gray-900 w-full hover:bg-slate-300 hover:rounded-md hover:text-gray-600">Mentors</a></li>
-                </ul>
-            </nav>
+        <div class="flex flex-row space-x-8">
+            <div class="flex-shrink-0"><img class="h-8 w-auto" src="<%= image_url "logo-black.png" %>" alt="ODT"></div>
+            <div class="hidden lg:block">
+                <nav>
+                    <ul class="flex flex-row space-x-4">
+                        <li><a href="#" class="block p-2 font-medium text-gray-900 w-full hover:bg-slate-300 hover:rounded-md hover:text-gray-600">Classes</a></li>
+                        <li><a href="#" class="block p-2 font-medium text-gray-900 w-full hover:bg-slate-300 hover:rounded-md hover:text-gray-600">Mentors</a></li>
+                    </ul>
+                </nav>
+            </div>
         </div>
         <div class="hidden lg:block" x-data="{ profileMenuOpen: false }" @click.away="profileMenuOpen = false" @keydown.window.escape="profileMenuOpen = false">
             <button type="button" class="relative flex rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800" id="user-menu-button" aria-expanded="false" aria-haspopup="true" @click="profileMenuOpen = true">
