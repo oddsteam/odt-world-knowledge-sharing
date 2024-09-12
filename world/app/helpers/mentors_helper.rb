@@ -1,2 +1,2 @@
-module MentorHelper
+module MentorsHelper
 end

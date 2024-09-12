@@ -1,1 +1,15 @@
 <%= render :partial => "shared/responsive_navbar" %>
+
+<section class="w-full">
+  <div class="mx-auto text-center py-20">
+    <h1 class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Looking for a mentor?</h1>
+    <p class="mt-6 text-lg leading-8 text-slate-600">These people may help you.</p>
+  </div>
+  <div class="w-full flex flex-col items-center">
+    <% if @mentors.length == 0 %>
+      <div class="mx-auto text-center">
+          <p class="text-xl lg:text-4xl">Sorry, no mentors available right now.<br>Maybe try again later?</p>
+      </div>
+    <% end %>
+  </div>
+</section>
