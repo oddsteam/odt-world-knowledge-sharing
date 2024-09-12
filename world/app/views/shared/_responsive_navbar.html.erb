@@ -1,4 +1,4 @@
-<div class="bg-white w-full h-auto" x-data="{ menuOpen: false }" @click.away="menuOpen = false" @keydown.window.escape="menuOpen = false">
+<div class="bg-white w-full h-auto" x-data="{ menuOpen: false, activeMenu: '<%= active_menu %>' }" @click.away="menuOpen = false" @keydown.window.escape="menuOpen = false">
     <!-- Popup Menu -->
     <div class="relative z-40 lg:hidden" x-show="menuOpen">
         <div class="fixed inset-0 bg-black bg-opacity-25 pointer-events-none" aria-hidden="true"></div>
@@ -12,8 +12,8 @@
                     </button>
                 </div>
                 <div class="flex flex-col space-y-1 px-4 py-6">
-                    <a href="#" class="block p-2 font-medium text-gray-900 w-full hover:bg-slate-300 hover:rounded-md hover:text-gray-600">Classes</a>
-                    <a href="<%= mentors_path %>" data-turbo-frame="page_content" class="block p-2 font-medium text-gray-900 w-full hover:bg-slate-300 hover:rounded-md hover:text-gray-600">Find a Mentor</a>
+                    <a href="<%= classes_path %>" class="block p-2 font-medium text-gray-900 w-full hover:bg-slate-300 hover:rounded-md hover:text-gray-600">Classes</a>
+                    <a href="<%= mentors_path %>" class="block p-2 font-medium text-gray-900 w-full hover:bg-slate-300 hover:rounded-md hover:text-gray-600">Find a Mentor</a>
                 </div>
                 <div class="flex flex-col space-y-1 px-6 py-6 border-t border-gray-200">
                     <div class="flex flex-row items-center space-x-4">
@@ -46,8 +46,8 @@
             <div class="hidden lg:block">
                 <nav>
                     <ul class="flex flex-row space-x-4">
-                        <li><a href="#" class="block py-6 px-6 font-medium text-slate-500 w-full border-b-2 border-transparent hover:border-slate-800 hover:text-slate-800">Classes</a></li>
-                        <li><a href="<%= mentors_path %>" data-turbo-frame="page_content" class="block py-6 px-6 font-medium text-slate-500 w-full border-b-2 border-transparent hover:border-slate-800 hover:text-slate-800">Find a Mentor</a></li>
+                        <li><a href="<%= classes_path %>" class="block py-6 px-6 font-medium text-slate-500 w-full border-b-2 border-transparent hover:border-slate-800 hover:text-slate-800" :class="{ 'border-slate-800 text-slate-800': (activeMenu == 'classes') }">Classes</a></li>
+                        <li><a href="<%= mentors_path %>" class="block py-6 px-6 font-medium text-slate-500 w-full border-b-2 border-transparent hover:border-slate-800 hover:text-slate-800" :class="{ 'border-slate-800 text-slate-800': (activeMenu == 'mentors') }">Find a Mentor</a></li>
                     </ul>
                 </nav>
             </div>
