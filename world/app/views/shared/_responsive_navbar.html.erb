@@ -6,7 +6,7 @@
             <div class="bg-white w-full flex flex-col overflow-y-auto pb-10 shadow-sm">
                 <div class="flex px-8 py-4">
                     <button type="button" class="relative -m-2 inline-flex items-center justify-center rounded-md p-2 text-gray-400" @click="menuOpen = false">
-                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
                         </svg>
                     </button>
@@ -33,21 +33,21 @@
         </div>
     </div>
     <!-- Nav Bar -->
-    <div class="relative py-4 px-8 flex items-center justify-between border-b">
+    <div class="relative px-8 flex items-center justify-between border-b py-4 lg:py-0">
         <div class="block lg:hidden">
             <button type="button" class="relative -m-2 inline-flex items-center justify-center rounded-md p-2 text-gray-400" @click="menuOpen = true">
-                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                 </svg>
             </button>
         </div>
-        <div class="flex flex-row space-x-8">
+        <div class="flex flex-row space-x-8 items-center">
             <div class="flex-shrink-0"><img class="h-8 w-auto" src="<%= image_url "logo-black.png" %>" alt="ODT"></div>
             <div class="hidden lg:block">
                 <nav>
                     <ul class="flex flex-row space-x-4">
-                        <li><a href="#" class="block p-2 font-medium text-gray-900 w-full hover:bg-slate-300 hover:rounded-md hover:text-gray-600">Classes</a></li>
-                        <li><a href="#" class="block p-2 font-medium text-gray-900 w-full hover:bg-slate-300 hover:rounded-md hover:text-gray-600">Mentors</a></li>
+                        <li><a href="#" class="block py-6 px-6 font-medium text-slate-500 w-full border-b-2 border-transparent hover:border-slate-800 hover:text-slate-800">Classes</a></li>
+                        <li><a href="#" class="block py-6 px-6 font-medium text-slate-500 w-full border-b-2 border-transparent hover:border-slate-800 hover:text-slate-800">Mentors</a></li>
                     </ul>
                 </nav>
             </div>
