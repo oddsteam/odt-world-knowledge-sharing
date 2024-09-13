@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_09_12_092717) do
+ActiveRecord::Schema[7.2].define(version: 2024_09_13_045323) do
   create_table "users", force: :cascade do |t|
     t.string "firstname"
     t.string "lastname"
@@ -27,6 +27,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_09_12_092717) do
     t.string "provider", limit: 50, default: ""
     t.string "uid", limit: 500, default: ""
     t.boolean "is_mentor", default: false
+    t.string "bio", limit: 100, default: ""
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["is_mentor"], name: "index_users_on_is_mentor"
     t.index ["login"], name: "index_users_on_login"

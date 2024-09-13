@@ -18,9 +18,9 @@
                 <div class="flex flex-col space-y-1 px-6 py-6 border-t border-gray-200">
                     <div class="flex flex-row items-center space-x-4">
                         <%= render :partial => "shared/profile_picture" %>
-                        <div class="flex flex-col -space-y-2">
+                        <div class="flex flex-col">
                             <div class="font-bold"><%= current_user.fullname %></div>
-                            <div class="">-</div>
+                            <div class="text-gray-500"><%= current_user.bio %></div>
                         </div>
                     </div>
                 </div>
