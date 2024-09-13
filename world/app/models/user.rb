@@ -12,7 +12,19 @@ class User < ApplicationRecord
     (self.firstname + " " + self.lastname).strip
   end
 
+  def abbrevname
+    (self.firstname[0] + self.lastname[0]).strip
+  end
+
+  def large_profile_picture
+    if self.profile_picture
+      self.profile_picture.gsub("=s96-c", "=s480-c")
+    end
+  end
+
   def self.create_from_provider_data(provider_data)
+    Rails.logger.info provider_data.to_json
+
     where(provider: provider_data.provider, uid: provider_data.uid).first_or_create do |user|
       user.email = provider_data.info.email
       user.profile_picture = provider_data.info.image
