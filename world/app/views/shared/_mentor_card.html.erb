@@ -1,10 +1,10 @@
 <% if mentor.profile_picture %>
-    <div class="relative w-full bg-cover bg-center aspect-1 rounded-md" style="background-image: url('<%= mentor.large_profile_picture %>');">
+    <div class="relative w-full bg-cover bg-center pb-aspect-3-4 rounded-md overflow-hidden" style="background-image: url('<%= mentor.large_profile_picture %>');">
         <%= render :partial => "shared/mentor_card_info", :locals => { mentor: mentor } %>
     </div>
 <% else %>
-    <div class="relative w-full bg-slate-600 aspect-1 rounded-md">
-        <div class="absolute inset-0 w-full text-gray-200 flex flex-row justify-center items-center text-4xl"><%= mentor.abbrevname %></div>
+    <div class="relative w-full bg-slate-600 pb-aspect-3-4 rounded-md">
+        <div class="absolute inset-0 w-full text-gray-200 flex flex-row justify-center items-center text-4xl overflow-hidden"><%= mentor.abbrevname %></div>
         <%= render :partial => "shared/mentor_card_info", :locals => { mentor: mentor } %>
     </div>
 <% end %>
