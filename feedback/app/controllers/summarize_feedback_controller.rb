@@ -17,15 +17,17 @@ class SummarizeFeedbackController < ApplicationController
       .having(class_detail_id: params[:class_detail_id])
       .first
       
-      @recommend = ClassFeedback
+      @recommend = (ClassFeedback
       .where(class_detail_id: params[:class_detail_id])
       .group(:recommend)
-      .count[true]/@record_count.to_f*100
+      .count[true]/@record_count.to_f*100).round(2)
 
+  
       @trainer_rating = ClassFeedback
       .select(:class_detail_id, 'ROUND( AVG(rating_trainer), 2 ) AS average_trainer_rating')
+      .group(:class_detail_id)
+      .having(class_detail_id: params[:class_detail_id])
       .first
-
   
 
 
