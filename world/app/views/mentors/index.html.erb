@@ -13,7 +13,9 @@
     <% else %>
       <div class="max-w-4xl w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 place-items-stretch gap-4 px-8 md:px-4 lg:px-0">
         <% @mentors.each do |mentor| %>
-          <%= render :partial => "shared/mentor_card", :locals => { mentor: mentor } %>
+          <%= link_to mentor_path(mentor.id) do %>
+            <%= render :partial => "shared/mentor_card", :locals => { mentor: mentor } %>
+          <% end %>
         <% end %>
       </div>
     <% end %>

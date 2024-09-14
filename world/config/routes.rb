@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
   get "classes/index", as: :classes
-  get "mentors/index", as: :mentors
+
+  resources :mentors, only: [ :index, :show ]
+  # get "mentors/index", as: :mentors
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   root "home#index"
 
   devise_for :users, controllers: {
-    omniauth_callbacks: 'users/omniauth_callbacks'
+    omniauth_callbacks: "users/omniauth_callbacks"
   }
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

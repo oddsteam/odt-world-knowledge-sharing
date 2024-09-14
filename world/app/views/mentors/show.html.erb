@@ -1,0 +1,13 @@
+<%= render :partial => "shared/responsive_navbar", :locals => { active_menu: "mentors" } %>
+
+<section class="w-full py-8">
+  <div class="w-full max-w-4xl grid grid-cols-8 mx-auto gap-x-8">
+    <div class="col-span-3">
+        <%= render :partial => "shared/large_profile_picture", :locals => { user: @mentor } %>
+    </div>
+    <div class="col-span-5">
+        <h2 class="text-2xl font-bold text-slate-800"><%= @mentor.fullname %></h2>
+        <p class="font-normal text-lg mt-2"><%= @mentor.bio %></p>
+    </div>
+  </div>
+</section>
