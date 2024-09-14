@@ -8,6 +8,8 @@ class User < ApplicationRecord
          :omniauthable,
          omniauth_providers: [ :google_oauth2 ]
 
+  has_and_belongs_to_many :skills
+
   def fullname
     (self.firstname + " " + self.lastname).strip
   end
@@ -23,8 +25,6 @@ class User < ApplicationRecord
   end
 
   def self.create_from_provider_data(provider_data)
-    Rails.logger.info provider_data.to_json
-
     where(provider: provider_data.provider, uid: provider_data.uid).first_or_create do |user|
       user.email = provider_data.info.email
       user.profile_picture = provider_data.info.image

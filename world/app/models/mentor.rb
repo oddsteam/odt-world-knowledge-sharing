@@ -1,7 +1,6 @@
 class Mentor
     def self.all
-        User # .includes(:skills)
-            .where(is_mentor: true)
+        User.where(is_mentor: true)
     end
 
     def self.find(id)

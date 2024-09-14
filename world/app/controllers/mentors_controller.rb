@@ -8,6 +8,8 @@ class MentorsController < ApplicationController
   def show
     @mentor = Mentor.find(params[:id])
 
+    Rails.logger.debug @mentor.skills
+
     if @mentor.nil?
       render file: "#{Rails.root}/public/404.html", layout: false, status: :not_found
     end
