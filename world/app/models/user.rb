@@ -8,7 +8,8 @@ class User < ApplicationRecord
          :omniauthable,
          omniauth_providers: [ :google_oauth2 ]
 
-  has_and_belongs_to_many :skills
+  has_many :skills_users
+  has_many :skills, through: :skills_users
 
   def fullname
     (self.firstname + " " + self.lastname).strip

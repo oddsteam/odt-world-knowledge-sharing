@@ -12,7 +12,9 @@
           <div class="mt-8">
             <ul class="m-0 p-0 flex flex-row flex-wrap gap-2 align-top justify-start">
               <% @mentor.skills.each do |skill| %>
-                <li class="rounded-md bg-slate-200 py-2 px-4 text-slate-600 font-normal"><%= skill.title %></li>
+                <li>
+                  <%= render :partial => "shared/skill", :locals => { skill: skill, skills_users_assoc: skill.skills_users.find_by(skill_id: skill.id, user_id: @mentor.id) } %>
+                </li>
               <% end %>
             </ul>
           </div>

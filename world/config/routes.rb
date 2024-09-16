@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   get "classes/index", as: :classes
 
+  post "users/:user_id/skills/:skill_id/endorse", to: "users#endorse_skill"
+
   resources :mentors, only: [ :index, :show ]
   # get "mentors/index", as: :mentors
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
