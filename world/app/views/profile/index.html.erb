@@ -1,0 +1,24 @@
+<%= render :partial => "shared/responsive_navbar", :locals => { active_menu: "profile" } %>
+
+<section class="w-full py-8">
+  <div class="w-full max-w-4xl grid grid-cols-3 md:grid-cols-6 lg:grid-cols-8 mx-auto gap-x-8 gap-y-4 px-4 lg:px-0">
+    <div class="col-span-1 md:col-span-2 lg:col-span-3">
+        <%= render :partial => "shared/large_profile_picture", :locals => { user: @me } %>
+    </div>
+    <div class="col-span-2 md:col-span-4 lg:col-span-5">
+        <h2 class="text-2xl font-bold text-slate-800"><%= @me.fullname %></h2>
+        <p class="font-normal text-lg mt-2"><%= @me.bio %></p>
+        <% if @me.skills.length > 0 %>
+          <div class="mt-8">
+            <ul class="m-0 p-0 flex flex-row flex-wrap gap-2 align-top justify-start">
+              <% @me.skills.each do |skill| %>
+                <li>
+                  <%= render :partial => "shared/skill", :locals => { skill: skill, skills_users_assoc: skill.skills_users.find_by(skill_id: skill.id, user_id: @me.id) } %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+    </div>
+  </div>
+</section>

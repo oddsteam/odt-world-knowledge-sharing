@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get "classes/index", as: :classes
+  get "profile/index", as: :profile
 
   post "users/:user_id/skills/:skill_id/endorse", to: "users#endorse_skill"
 
