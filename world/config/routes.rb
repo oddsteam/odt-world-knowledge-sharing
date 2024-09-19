@@ -1,13 +1,14 @@
 Rails.application.routes.draw do
+  root "home#index"
   get "classes/index", as: :classes
-  get "profile/index", as: :profile
-
-  post "users/:user_id/skills/:skill_id/endorse", to: "users#endorse_skill"
+  get "profile" => "profile#index", as: :profile
+  post "users/:user_id/skills/:skill_id/endorse" => "users#endorse_skill"
+  get "users/:user_id/profile_picture/large" => "users#large_profile_picture", as: :large_profile_picture
+  get "users/:user_id/profile_picture" => "users#profile_picture", as: :profile_picture
 
   resources :mentors, only: [ :index, :show ]
   # get "mentors/index", as: :mentors
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-  root "home#index"
 
   devise_for :users, controllers: {
     omniauth_callbacks: "users/omniauth_callbacks"
