@@ -1,0 +1,11 @@
+<%= turbo_frame_tag "opt_mentor", data: { turbo_cache_control: "no-cache" } do %>
+    <% if is_mentor %>
+        <%= button_to me_opt_mentor_path, data: { turbo_frame: "_top" }, class:"bg-indigo-600 border-transparent border-2 rounded-full cursor-pointer flex-shrink-0 !w-11 !h-6 inline-flex relative" do %>
+            <span class="absolute w-5 h-5 rounded-full bg-white shadow right-0"></span>
+        <% end %>
+    <% else %>
+        <%= button_to me_opt_mentor_path, data: { turbo_frame: "_top" }, class:"bg-gray-200 border-transparent border-2 rounded-full cursor-pointer flex-shrink-0 !w-11 !h-6 inline-flex relative" do %>
+            <span class="w-5 h-5 rounded-full bg-white shadow"></span>
+        <% end %>
+    <% end %>
+<% end %>

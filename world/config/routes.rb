@@ -1,13 +1,16 @@
 Rails.application.routes.draw do
   root "home#index"
+
   get "classes/index", as: :classes
-  get "profile" => "profile#index", as: :profile
-  post "users/:user_id/skills/:skill_id/endorse" => "users#endorse_skill"
+
+  get "users/me" => "me#index", as: :me
+  post "users/me/opt/mentor" => "me#opt_mentor", as: :me_opt_mentor
+
   get "users/:user_id/profile_picture/large" => "users#large_profile_picture", as: :large_profile_picture
   get "users/:user_id/profile_picture" => "users#profile_picture", as: :profile_picture
+  post "users/:user_id/skills/:skill_id/endorse" => "users#endorse_skill"
 
   resources :mentors, only: [ :index, :show ]
-  # get "mentors/index", as: :mentors
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   devise_for :users, controllers: {
