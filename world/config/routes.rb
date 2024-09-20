@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   get "users/me" => "me#index", as: :me
   post "users/me/opt/mentor" => "me#opt_mentor", as: :me_opt_mentor
+  post "users/me/bio" => "me#update_bio", as: :me_bio_update
 
   get "users/:user_id/profile_picture/large" => "users#large_profile_picture", as: :large_profile_picture
   get "users/:user_id/profile_picture" => "users#profile_picture", as: :profile_picture

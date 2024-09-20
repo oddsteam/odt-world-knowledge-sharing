@@ -7,7 +7,7 @@
     </div>
     <div class="col-span-2 md:col-span-4 lg:col-span-5">
         <h2 class="text-2xl font-bold text-slate-800"><%= @me.fullname %></h2>
-        <p class="font-normal text-lg mt-2"><%= @me.bio %></p>
+        <%= render :partial => "shared/me_bio", :locals => { text: @me.bio } %>
         <% if @me.skills.length > 0 %>
           <div class="mt-8">
             <ul class="m-0 p-0 flex flex-row flex-wrap gap-2 align-top justify-start">
@@ -21,9 +21,16 @@
         <% end %>
         <div class="mt-8">
           <div class="flex flex-row justify-between items-center">
-            <div class="flex flex-col">
-              <h3 class="font-bold text-gray-600">I am a mentor</h3>
-              <p class="text-sm text-gray-400">You are a hero without cape. Kudos!</p>
+            <div class="flex flex-row space-x-4">
+              <div class="flex flex-row items-center justify-center w-12 text-slate-600">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path fill="currentColor" d="M12 20a1 1 0 0 1-.437-.1C11.214 19.73 3 15.671 3 9a5 5 0 0 1 8.535-3.536l.465.465.465-.465A5 5 0 0 1 21 9c0 6.646-8.212 10.728-8.562 10.9A1 1 0 0 1 12 20z"/>
+                </svg>
+              </div>
+              <div class="flex flex-col">
+                <h3 class="font-bold text-slate-600 text-lg">I am a mentor</h3>
+                <p class="text-sm text-gray-400 mt-2">Becoming a hero without cape.</p>
+              </div>
             </div>
             <div class="flex flex-col items-center">
               <%= render :partial => "shared/opt_mentor", :locals => { is_mentor: @me.is_mentor } %>
