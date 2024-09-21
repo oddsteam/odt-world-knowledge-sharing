@@ -8,7 +8,7 @@ class MeControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to "/users/sign_in"
   end
 
-  test "should be able to authen" do
+  test "should be able to access profile page if authen" do
     require "JSON"
     provider_data = {
       provider: "odt",
