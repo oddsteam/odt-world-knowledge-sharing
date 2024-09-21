@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root "home#index"
 
-  get "classes/index", as: :classes
+  get "classes/index", as: :classes_index
 
   get "users/me" => "me#index", as: :me_index
   post "users/me/opt/mentor" => "me#opt_mentor", as: :me_opt_mentor
