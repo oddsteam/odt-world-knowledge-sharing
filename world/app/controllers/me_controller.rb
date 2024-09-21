@@ -1,4 +1,6 @@
 class MeController < ApplicationController
+  before_action :authenticate_user!, only: [:index]
+
   def index
     @me = User.find(current_user.id)
   end

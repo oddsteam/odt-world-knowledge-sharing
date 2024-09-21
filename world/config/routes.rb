@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   get "classes/index", as: :classes
 
-  get "users/me" => "me#index", as: :me
+  get "users/me" => "me#index", as: :me_index
   post "users/me/opt/mentor" => "me#opt_mentor", as: :me_opt_mentor
   post "users/me/bio" => "me#update_bio", as: :me_bio_update
 

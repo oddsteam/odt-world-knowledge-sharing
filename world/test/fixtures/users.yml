@@ -1,0 +1,32 @@
+jonathan:
+  id: 1
+  firstname: Jonathan
+  lastname: Dyson
+  nickname: Jon
+  profile_picture: https://testprofile.info/jon/picture?s=s96-c
+  email: jon@mailinator.com
+  login: jonathan
+  is_mentor: true
+  bio: ""
+
+natalie:
+  id: 2
+  firstname: Natalie
+  lastname: Swenson
+  nickname: Nat
+  profile_picture: https://testprofile.info/nat/picture?s=s96-c
+  email: nat@mailinator.com
+  login: natalie
+  is_mentor: true
+  bio: ""
+
+michelle:
+  id: 3
+  firstname: Michelle
+  lastname: Nickel
+  nickname: Michelle
+  profile_picture: ""
+  email: michelle@mailinator.com
+  login: michelle
+  is_mentor: false
+  bio: ""

@@ -25,7 +25,7 @@
                     </div>
                 </div>
                 <div class="flex flex-col space-y-1 px-4">
-                    <a href="<%= me_path %>" class="block p-2 font-medium text-gray-900 w-full hover:bg-slate-300 hover:rounded-md hover:text-gray-600">Your Profile</a>
+                    <a href="<%= me_index_path %>" class="block p-2 font-medium text-gray-900 w-full hover:bg-slate-300 hover:rounded-md hover:text-gray-600">Your Profile</a>
                     <a href="#" class="block p-2 font-medium text-gray-900 w-full hover:bg-slate-300 hover:rounded-md hover:text-gray-600">Settings</a>
                     <%= link_to "Sign out", destroy_user_session_path, method: :delete, data: { turbo_method: :delete }, class: "block p-2 font-medium text-gray-900 w-full hover:bg-slate-300 hover:rounded-md hover:text-gray-600", role: "menuitem", tabindex:"-1", id:"user-menu-item-2" %>
                 </div>
@@ -58,7 +58,7 @@
             </button>
 
             <div class="hidden absolute right-8 z-10 py-2 space-y-2 mt-2 w-48 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1" :class="{'hidden': !profileMenuOpen}">
-                <a href="<%= me_path %>" class="rounded-md block mx-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-300" role="menuitem" tabindex="-1" id="user-menu-item-0">Your Profile</a>
+                <a href="<%= me_index_path %>" class="rounded-md block mx-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-300" role="menuitem" tabindex="-1" id="user-menu-item-0">Your Profile</a>
                 <a href="#" class="rounded-md block mx-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-300" role="menuitem" tabindex="-1" id="user-menu-item-1">Settings</a>
                 <hr class="border-0 border-b border-gray-300">
                 <%= link_to "Sign out", destroy_user_session_path, method: :delete, data: { turbo_method: :delete }, class: "rounded-md mx-2 block text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-300", role: "menuitem", tabindex:"-1", id:"user-menu-item-2" %>

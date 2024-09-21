@@ -1,9 +1,19 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+oracle:
+  id: 1
+  title: Oracle
 
-one:
-  title: MyString
-  user_id: 1
+sql:
+  id: 2
+  title: SQL
 
-two:
-  title: MyString
-  user_id: 1
+mongodb:
+  id: 3
+  title: Mongo DB
+
+agile:
+  id: 4
+  title: Agile
+
+uxui:
+  id: 5
+  title: UX/UI
