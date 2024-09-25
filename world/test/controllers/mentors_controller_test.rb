@@ -1,8 +1,8 @@
 require "test_helper"
 
-class MentorControllerTest < ActionDispatch::IntegrationTest
-  # test "should get index" do
-  #   get mentor_index_url
-  #   assert_response :success
-  # end
+class MentorsControllerTest < ActionDispatch::IntegrationTest
+  test "should get index" do
+    get mentors_index_url
+    assert_response :success
+  end
 end

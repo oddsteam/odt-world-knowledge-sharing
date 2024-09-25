@@ -4,8 +4,10 @@ Rails.application.routes.draw do
   get "classes/index", as: :classes_index
 
   get "users/me" => "me#index", as: :me_index
-  post "users/me/opt/mentor" => "me#opt_mentor", as: :me_opt_mentor
+  get "users/me/mentor/availability" => "me#show_mentor_availability", as: :me_mentor_availability
+  post "users/me/mentor/opt" => "me#opt_mentor", as: :me_mentor_opt
   post "users/me/bio" => "me#update_bio", as: :me_bio_update
+  post "users/me/mentor/availability/calendar" => "me#show_calendar", as: :me_mentor_calendar
 
   get "users/:user_id/profile_picture/large" => "users#large_profile_picture", as: :large_profile_picture
   get "users/:user_id/profile_picture" => "users#profile_picture", as: :profile_picture

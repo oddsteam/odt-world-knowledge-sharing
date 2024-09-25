@@ -1,5 +1,5 @@
 <%= turbo_frame_tag "skills_#{skills_users_assoc.skill_id}", data: { turbo_cache_control: "no-cache" } do %>
-    <%= button_to "/users/#{skills_users_assoc.user_id}/skills/#{skills_users_assoc.skill_id}/endorse", data: { turbo_frame: "_top" }, class:"rounded-md border flex flex-row items-center shadow-sm hover:bg-slate-100" do %>
+    <%= button_to "/users/#{skills_users_assoc.user_id}/skills/#{skills_users_assoc.skill_id}/endorse", class:"rounded-md border flex flex-row items-center shadow-sm hover:bg-slate-100" do %>
         <div class="px-3 py-1 border-r flex flex-row items-center gap-x-2 text-sm">
             <span><%= render :partial => "shared/thumb_up", :locals => { classes: "top-1 h-4 w-4 " + (is_endorsed_by_me(skills_users_assoc) ? 'text-slate-600' : 'text-slate-300') } %></span>
             <span class="text-sm text-slate-800"><%= skill.title %></span>

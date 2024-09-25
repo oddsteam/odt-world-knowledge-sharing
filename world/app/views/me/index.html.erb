@@ -20,8 +20,8 @@
           </div>
         <% end %>
         <div class="mt-8">
-          <div class="flex flex-row justify-between items-center">
-            <div class="flex flex-row space-x-4">
+          <div class="flex flex-row justify-between items-start">
+            <div class="flex flex-row space-x-4 justify-center items-start">
               <div class="flex flex-row items-center justify-center w-12 text-slate-600">
                 <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path fill="currentColor" d="M12 20a1 1 0 0 1-.437-.1C11.214 19.73 3 15.671 3 9a5 5 0 0 1 8.535-3.536l.465.465.465-.465A5 5 0 0 1 21 9c0 6.646-8.212 10.728-8.562 10.9A1 1 0 0 1 12 20z"/>
@@ -30,9 +30,11 @@
               <div class="flex flex-col">
                 <h3 class="font-bold text-slate-600 text-lg">I am a mentor</h3>
                 <p class="text-sm text-gray-400 mt-2">Becoming a hero without cape.</p>
+                
+                <%= render :partial => "shared/mentor_availability_link", :locals => { is_mentor: @me.is_mentor } %>
               </div>
             </div>
-            <div class="flex flex-col items-center">
+            <div class="flex flex-row items-center justify-center w-12 h-12">
               <%= render :partial => "shared/opt_mentor", :locals => { is_mentor: @me.is_mentor } %>
             </div>
           </div>
