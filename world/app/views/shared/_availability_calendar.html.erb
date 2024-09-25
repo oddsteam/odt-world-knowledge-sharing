@@ -1,0 +1,70 @@
+<%= turbo_frame_tag "mentor_calendar", data: { turbo_cache_control: "no-cache" } do %>
+    <div class="relative w-full" x-data="{ availabilityModalOpen: false }" @keydown.window.escape="availabilityModalOpen = false">
+        <div class="relative z-40" x-show="availabilityModalOpen">
+            <div class="fixed inset-0 bg-black bg-opacity-25" aria-hidden="true" x-show="availabilityModalOpen"></div>
+            <div class="fixed inset-0 z-40 w-screen overflow-y-auto">
+                <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+                    <div class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg" @click.outside="availabilityModalOpen = false" x-show="availabilityModalOpen">
+                        <div class="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
+                            xxx
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="absolute border border-slate-300 w-full mt-4">
+            <table class="w-full border-collapse">
+                <thead>
+                    <tr>
+                        <th colspan="7" class="border-slate-200 border-b">
+                            <div class="flex flex-row justify-between w-full py-4 px-4">
+                                <div class="flex flex-row justify-between items-center w-36 h-8">
+                                    <%= button_to me_mentor_calendar_path, method: :post, params: { calendar: calendar[:prev] }, class: "text-slate-500 w-4 h-4" do %>
+                                    <svg xmlns="https://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                        <path d="M16 4l-8 8l8 8" fill="none" stroke-linejoin="round" stroke-width="4" stroke-linecap="round" stroke="currentColor" />
+                                    </svg>
+                                    <% end %>
+                                    <span class="text-slate-600 uppercase">
+                                        <%= Date::ABBR_MONTHNAMES[calendar[:month]] %> <%= calendar[:year] %>
+                                    </span>
+                                    <%= button_to me_mentor_calendar_path, method: :post, params: { calendar: calendar[:next] }, class: "text-slate-500 w-4 h-4" do %>
+                                    <svg xmlns="https://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                        <path d="M8 4l8 8l-8 8" fill="none" stroke-linejoin="round" stroke-width="4" stroke-linecap="round" stroke="currentColor" />
+                                    </svg>
+                                    <% end %>
+                                </div>
+                                <div class="flex flex-row">
+                                    <%= button_to "Today", me_mentor_calendar_path, method: :post, params: { calendar: calendar[:current] }, class: "text-slate-600 bg-gray-100 border shadow-sm round px-4 py-1 rounded" %>
+                                </div>
+                            </div>
+                        </th>
+                    </tr>
+                    <tr>
+                        <% (0..6).each do |day_of_week| %>
+                        <th class="<%= "border-r" unless day_of_week == 6 %> border-slate-200 text-xs text-slate-400 py-1 uppercase"><%= Date::ABBR_DAYNAMES[day_of_week] %></th>
+                        <% end %>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% calendar[:calendar].each_with_index do |week, index| %>
+                        <tr>
+                            <% week.each do |date| %>
+                                <td class="border <%= "border-l-0" if date.wday == 0 %> <%= "border-r-0" if date.wday == 6 %> <%= "border-b-0" if index + 1 == calendar[:calendar].length %>">
+                                    <% if date.month == calendar[:month] %>
+                                        <div @click="availabilityModalOpen = true" class="text-slate-700 w-full h-28 flex flex-col justify-start items-center text-sm p-1 <%= %>">
+                                            <div class="flex flex-row justify-center items-center rounded-full aspect-1 p-1 <%= calendar[:today] == ("%d%02d%02d" % [date.year, date.month, date.day]) ? "bg-red-400 text-gray-100" : "bg-transparent" %>"><%= date.day %></div>
+                                        </div>
+                                    <% else %>
+                                        <div class="text-slate-300 w-full h-28 flex flex-col justify-start items-center text-sm p-1">
+                                            <div class="flex flex-row justify-center items-center rounded-full aspect-1 p-1 <%= calendar[:today] == ("%d%02d%02d" % [date.year, date.month, date.day]) ? "bg-red-200 text-gray-100" : "bg-transparent" %>"><%= date.day %></div>
+                                        </div>
+                                    <% end %>
+                                </td>
+                            <% end %>
+                        </tr>
+                    <% end %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+<% end %>

@@ -13,7 +13,7 @@ class MeController < ApplicationController
       format.turbo_stream {
         render turbo_stream: 
         turbo_stream.replace("mentor_calendar",
-        partial: 'shared/full_calendar',
+        partial: 'shared/availability_calendar',
         locals: { calendar: @calendar } )
       }
       format.html { redirect_to "/users/me/mentor/availability" }

@@ -1,9 +1,9 @@
-<div class="bg-white w-full h-auto" x-data="{ menuOpen: false, activeMenu: '<%= active_menu %>' }" @click.away="menuOpen = false" @keydown.window.escape="menuOpen = false">
+<div class="bg-white w-full h-auto" x-data="{ menuOpen: false, activeMenu: '<%= active_menu %>' }" @keydown.window.escape="menuOpen = false">
     <!-- Popup Menu -->
     <div class="relative z-40 lg:hidden" x-show="menuOpen">
         <div class="fixed inset-0 bg-black bg-opacity-25 pointer-events-none" aria-hidden="true"></div>
         <div class="fixed inset-0 z-40">
-            <div class="bg-white w-full flex flex-col overflow-y-auto pb-10 shadow-sm">
+            <div class="bg-white w-full flex flex-col overflow-y-auto pb-10 shadow-sm" @click.outside="menuOpen = false">
                 <div class="flex px-8 py-4">
                     <button type="button" class="relative -m-2 inline-flex items-center justify-center rounded-md p-2 text-gray-400" @click="menuOpen = false">
                         <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
