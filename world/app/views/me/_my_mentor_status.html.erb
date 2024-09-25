@@ -1,0 +1,7 @@
+<%= turbo_frame_tag "my_mentor_status", data: { turbo_cache_control: "no-cache" } do %>
+  <% if is_mentor %>
+    I am a mentor
+  <% else %>
+    I want to be a mentor
+  <% end %>
+<% end %>

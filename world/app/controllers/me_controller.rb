@@ -39,6 +39,9 @@ class MeController < ApplicationController
                 locals: { is_mentor: @me.is_mentor }),
             turbo_stream.replace("mentor_availability",
                 partial: 'shared/mentor_availability_link',
+                locals: { is_mentor: @me.is_mentor }),
+            turbo_stream.replace("my_mentor_status",
+                partial: 'me/my_mentor_status',
                 locals: { is_mentor: @me.is_mentor })
           ]
         end

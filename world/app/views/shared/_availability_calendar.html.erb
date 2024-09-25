@@ -50,7 +50,7 @@
                         <tr>
                             <% week.each do |date| %>
                                 <td class="border <%= "border-l-0" if date.wday == 0 %> <%= "border-r-0" if date.wday == 6 %> <%= "border-b-0" if index + 1 == calendar[:calendar].length %>">
-                                    <% if date.month == calendar[:month] %>
+                                    <% if date.month == calendar[:month] && (calendar[:today] <= ("%d%02d%02d" % [date.year, date.month, date.day])) %>
                                         <div @click="availabilityModalOpen = true" class="text-slate-700 w-full h-28 flex flex-col justify-start items-center text-sm p-1 <%= %>">
                                             <div class="flex flex-row justify-center items-center rounded-full aspect-1 p-1 <%= calendar[:today] == ("%d%02d%02d" % [date.year, date.month, date.day]) ? "bg-red-400 text-gray-100" : "bg-transparent" %>"><%= date.day %></div>
                                         </div>

@@ -28,7 +28,9 @@
                 </svg>
               </div>
               <div class="flex flex-col">
-                <h3 class="font-bold text-slate-600 text-lg">I am a mentor</h3>
+                <h3 class="font-bold text-slate-600 text-lg">
+                  <%= render :partial => "me/my_mentor_status", :locals => { is_mentor: @me.is_mentor } %>
+                </h3>
                 <p class="text-sm text-gray-400 mt-2">Becoming a hero without cape.</p>
                 
                 <%= render :partial => "shared/mentor_availability_link", :locals => { is_mentor: @me.is_mentor } %>
