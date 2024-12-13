@@ -1,0 +1,96 @@
+<div class="flex flex-col gap-y-8 px-12 py-8">
+    <header class="text-3xl font-bold">
+        Component examples
+    </header>
+
+    <section>
+        <h2 class="text-xl font-bold" data-controller="hello"></h2>
+    </section>
+
+    <section>
+        <h2 class="text-xl font-bold">Multiple toggleable panels</h2>
+        <div class="flex flex-col gap-y-2">
+            <div class="flex flex-col border rounded p-2">
+                <div class="flex flex-row gap-x-2">
+                    <%= render  "shared/slide_button",
+                                identifier: "panel1" %>
+                    <label>Panel 1</label>
+                </div>
+                <%= render  "shared/toggleable_panel", 
+                            toggle_identifier: "panel1" do %>
+                    <p>Panel 1 content</p>
+                <% end %>
+            </div>
+            <div class="flex flex-col border rounded p-2">
+                <div class="flex flex-row gap-x-2">
+                    <%= render  "shared/slide_button", 
+                                identifier: "panel2" %>
+                    <label>Panel 2</label>
+                </div>
+                <%= render  "shared/toggleable_panel", 
+                            toggle_identifier: "panel2" do %>
+                    <p>Panel 2 content</p>
+                <% end %>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2 class="text-xl font-bold">Tabs</h2>
+        <%= render  "shared/tabs_list", 
+                    tab_template: "shared/tab", 
+                    default_tab_identifier: "tab1", 
+                    classes: {
+                        tab_list: 'flex flex-row border-b', 
+                        tab: '-mb-px bg-white px-4 py-2 cursor-pointer border-l border-r rounded-tl rounded-tr', 
+                        active: 'font-bold border-b-white border-t-2 border-t-blue-300', 
+                        inactive: 'border-t border-b'
+                    }, 
+                    tabs: [
+                        { identifier: "tab1", label: "Tab 1" },
+                        { identifier: "tab2", label: "Tab 2" },
+                        { identifier: "tab3", label: "Tab 3" }
+                    ] %>
+        <%= render  "shared/toggleable_panel", 
+                    toggle_identifier: "tab1" do %>
+            <div class="border-l border-r border-b rounded-bl rounded-br p-4">
+                <p>Panel 1 content</p>
+            </div>
+        <% end %>
+        <%= render  "shared/toggleable_panel", 
+                    toggle_identifier: "tab2" do %>
+            <div class="border-l border-r border-b rounded-bl rounded-br p-4">
+                <p>Panel 2 content</p>
+            </div>
+        <% end %>
+        <%= render  "shared/toggleable_panel", 
+                    toggle_identifier: "tab3" do %>
+            <div class="border-l border-r border-b rounded-bl rounded-br p-4">
+                <p>Panel 3 content</p>
+            </div>
+        <% end %>
+    </section>
+
+    <section>
+        <h2 class="text-xl font-bold">Calendar</h2>
+        <%= render  "shared/calendar",
+                    month: Date.current.month, 
+                    year: Date.current.year,
+                    identifier: "calendar1" %>
+        <div class="mt-2">
+                <%= render "shared/event_listener",
+                            event_name: "calendar1:selected" %>
+        </div>
+    </section>
+
+    <section>
+        <h2 class="text-xl font-bold">Editable label</h2>
+        <%= render  "shared/editable_label",
+                    text: "Hello",
+                    identifier: "label1" %>
+        <div class="mt-2">
+                <%= render "shared/event_listener",
+                            event_name: "label1:changed" %>
+        </div>
+    </section>
+</div>

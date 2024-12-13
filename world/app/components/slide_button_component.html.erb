@@ -1,0 +1,5 @@
+<button :class="<%= @model %> ? 'bg-indigo-600 border-transparent border-2 rounded-full cursor-pointer flex-shrink-0 !w-11 !h-6 inline-flex relative' : 'bg-gray-200 border-transparent border-2 rounded-full cursor-pointer flex-shrink-0 !w-11 !h-6 inline-flex relative' " @click="<%= @model %> = !<%= @model %>">
+    <input type="hidden" name="<%= @model %>" x-model="<%= @model %>">
+    <span x-show="<%= @model %>" class="absolute w-5 h-5 rounded-full bg-white shadow right-0"></span>
+    <span x-show="!<%= @model %>" class="w-5 h-5 rounded-full bg-white shadow"></span>
+</button>

@@ -1,0 +1,76 @@
+<div class="relative transform overflow-hidden rounded-md bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg" @click.outside="availabilityModalOpen = false" x-show="availabilityModalOpen">
+    <%= form_with url: me_bio_update_path do |form| %>
+    <div class="bg-white">
+        <div class="border-b p-4 flex flex-row justify-between items-start">
+            <h2 class="font-bold text-lg text-slate-600">Add availability</h2>
+            <button @click="availabilityModalOpen = false" class="w-4 h-4 text-gray-500">
+                <svg xmlns="https://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M4 4l16 16" fill="none" stroke-linejoin="round" stroke-width="4" stroke-linecap="round" stroke="currentColor" />
+                    <path d="M20 4l-16 16" fill="none" stroke-linejoin="round" stroke-width="4" stroke-linecap="round" stroke="currentColor" />
+                </svg>
+            </button>
+        </div>
+        <div class="py-4 px-8 flex flex-row items-center gap-x-3">
+            <div class="w-5 h-5 text-gray-500">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <rect x="1.5" y="1.5" width="21" height="21" rx=2 fill="none" stroke="currentColor" stroke-width="3" />
+                    <path d="M1.5 9l21 0" fill="none" stroke-linejoin="round" stroke-width="3" stroke-linecap="round" stroke="currentColor" />
+                    <path d="M5 12l0 2.5l2.5 0l0 -2.5Z" fill="currentColor" stroke-width="0" />
+                    <path d="M10.75 12l0 2.5l2.5 0l0 -2.5Z" fill="currentColor" stroke-width="0" />
+                    <path d="M16.5 12l0 2.5l2.5 0l0 -2.5Z" fill="currentColor" stroke-width="0" />
+                    <path d="M5 16.5l0 2.5l2.5 0l0 -2.5Z" fill="currentColor" stroke-width="0" />
+                    <path d="M10.75 16.5l0 2.5l2.5 0l0 -2.5Z" fill="currentColor" stroke-width="0" />
+                    <path d="M16.5 16.5l0 2.5l2.5 0l0 -2.5Z" fill="currentColor" stroke-width="0" />
+                </svg>
+            </div>
+            <div class="flex flex-row">
+                <input type="hidden" name="selectedDate" x-model="selectedDate">
+                <span x-html="readableSelectedDate"></span>
+            </div>
+        </div>
+        <div class="py-4 px-8 flex flex-row items-center gap-x-3">
+            <div class="w-5 h-5 text-gray-500">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="10.5" fill="none" stroke="currentColor" stroke-width="3" />
+                    <path d="M12 5l0 7l4 4" fill="none" stroke-linejoin="round" stroke-width="3" stroke-linecap="round" stroke="currentColor" />
+                </svg>
+            </div>
+            <div class="flex flex-col" x-data="{ selectedDays:{sun:{selected:false,from:0,to:15},mon:{selected:true,from:0,to:15},tue:{selected:true,from:0,to:15},wed:{selected:true,from:0,to:15},thu:{selected:true,from:0,to:15},fri:{selected:true,from:0,to:15},sat:{selected:false,from:0,to:15}} }" x-init="$watch('selectedDays', (value) => console.log(value))">
+                <input type="hidden" name="sun_selected" x-model="selectedDays.sun.selected">
+                <input type="hidden" name="sun_from" x-model="selectedDays.sun.from">
+                <input type="hidden" name="sun_to" x-model="selectedDays.sun.to">
+                <%= render(DayAvailabilityFieldComponent.new(label: "Sun", selected: false, model: "selectedDays.sun")) %>
+                <input type="hidden" name="mon_selected" x-model="selectedDays.mon.selected">
+                <input type="hidden" name="mon_from" x-model="selectedDays.mon.from">
+                <input type="hidden" name="mon_to" x-model="selectedDays.mon.to">
+                <%= render(DayAvailabilityFieldComponent.new(label: "Mon", selected: true, model: "selectedDays.mon")) %>
+                <input type="hidden" name="tue_selected" x-model="selectedDays.tue.selected">
+                <input type="hidden" name="tue_from" x-model="selectedDays.tue.from">
+                <input type="hidden" name="tue_to" x-model="selectedDays.tue.to">
+                <%= render(DayAvailabilityFieldComponent.new(label: "Tue", selected: true, model: "selectedDays.tue")) %>
+                <input type="hidden" name="wed_selected" x-model="selectedDays.wed.selected">
+                <input type="hidden" name="wed_from" x-model="selectedDays.wed.from">
+                <input type="hidden" name="wed_to" x-model="selectedDays.wed.to">
+                <%= render(DayAvailabilityFieldComponent.new(label: "Wed", selected: true, model: "selectedDays.wed")) %>
+                <input type="hidden" name="thu_selected" x-model="selectedDays.thu.selected">
+                <input type="hidden" name="thu_from" x-model="selectedDays.thu.from">
+                <input type="hidden" name="thu_to" x-model="selectedDays.thu.to">
+                <%= render(DayAvailabilityFieldComponent.new(label: "Thu", selected: true, model: "selectedDays.thu")) %>
+                <input type="hidden" name="fri_selected" x-model="selectedDays.fri.selected">
+                <input type="hidden" name="fri_from" x-model="selectedDays.fri.from">
+                <input type="hidden" name="fri_to" x-model="selectedDays.fri.to">
+                <%= render(DayAvailabilityFieldComponent.new(label: "Fri", selected: true, model: "selectedDays.fri")) %>
+                <input type="hidden" name="sat_selected" x-model="selectedDays.sat.selected">
+                <input type="hidden" name="sat_from" x-model="selectedDays.sat.from">
+                <input type="hidden" name="sat_to" x-model="selectedDays.sat.to">
+                <%= render(DayAvailabilityFieldComponent.new(label: "Sat", selected: false, model: "selectedDays.sat")) %>
+            </div>
+        </div>
+        <div class="border-t py-4 px-8 flex flex-row justify-end">
+            <button type="submit" class="bg-blue-500 rounded py-2 px-4 text-sm text-gray-100" @click="availabilityModalOpen = false">
+            Save
+            </button>
+        </div>
+    </div>
+    <% end %>
+</div>

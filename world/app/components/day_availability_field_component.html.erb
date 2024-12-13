@@ -1,0 +1,9 @@
+<div class="min-h-12 flex flex-row items-center gap-x-4">
+    <%= render(SlideButtonComponent.new(selected: @selected, model: "#{@model}.selected")) %>
+    <div class="font-bold text-sm w-12" :class="<%= "#{@model}.selected" %> ? 'text-slate-600' : 'text-slate-400' "><%= @label %></div>
+    <div class="flex flex-row gap-x-2 items-center" x-show="<%= "#{@model}.selected" %>">
+        <%= render(TimePickerComponent.new(model: "#{@model}.from")) %>
+        -
+        <%= render(TimePickerComponent.new(model: "#{@model}.to", default: 15)) %>
+    </div>
+</div>

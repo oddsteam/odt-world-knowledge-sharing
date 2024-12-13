@@ -1,0 +1,20 @@
+<%= turbo_frame_tag "available_date", data: { turbo_cache_control: "no-cache" } do %>
+    <%= form_with url: me_mentor_availability_by_date_path, 
+            data: { 
+                controller: "form-sensor",
+                action: "availability_calendar:selected@window->form-sensor#submit"
+            } do |form| %>
+        <input type="hidden" data-form-sensor-target="date" name="date">
+        <input type="hidden" data-form-sensor-target="month" name="month">
+        <input type="hidden" data-form-sensor-target="year" name="year">
+    <% end %>
+    <div class="flex flex-row justify-between items-center">
+        <h2 class="font-bold text-lg"><%= "#{Date::ABBR_DAYNAMES[selected_date[:wday].to_i]} #{selected_date[:date]} #{Date::ABBR_MONTHNAMES[selected_date[:month].to_i]} #{selected_date[:year]}" %></h2>
+        <button class="p-2 w-8 h-8 text-slate-600 bg-gray-100 border shadow-sm round rounded">
+            <svg xmlns="https://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M12 4l0 16" fill="none" stroke-linejoin="round" stroke-width="4" stroke-linecap="round" stroke="currentColor" />
+                <path d="M4 12l16 0" fill="none" stroke-linejoin="round" stroke-width="4" stroke-linecap="round" stroke="currentColor" />
+            </svg>
+        </button>
+    </div>
+<% end %>

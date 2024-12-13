@@ -7,7 +7,7 @@
     </div>
     <div class="col-span-2 md:col-span-4 lg:col-span-5">
         <h2 class="text-2xl font-bold text-slate-800"><%= @me.fullname %></h2>
-        <%= render :partial => "shared/me_bio", :locals => { text: @me.bio } %>
+        <%= render :partial => "editable_bio", :locals => { text: @me.bio } %>
         <% if @me.skills.length > 0 %>
           <div class="mt-8">
             <ul class="m-0 p-0 flex flex-row flex-wrap gap-2 align-top justify-start">
@@ -37,7 +37,7 @@
               </div>
             </div>
             <div class="flex flex-row items-center justify-center w-12 h-12">
-              <%= render :partial => "shared/opt_mentor", :locals => { is_mentor: @me.is_mentor } %>
+              <%= render :partial => "mentor_opt_in_button", :locals => { is_mentor: @me.is_mentor } %>
             </div>
           </div>
         </div>

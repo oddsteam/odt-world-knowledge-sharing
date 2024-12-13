@@ -1,0 +1,48 @@
+<table class="w-full table-auto border-collapse" data-controller="calendar" data-calendar-month-value="<%= month %>" data-calendar-year-value="<%= year %>" data-calendar-identifier-value="<%= identifier %>">
+    <template data-calendar-target="currentMonthDayTemplate">
+        <td class="border cursor-pointer" data-calendar-target="day-entry" data-action="click->calendar#day_trigger" data-calendar-year-param="" data-calendar-month-param="" data-calendar-date-param="">
+            <div class="text-slate-700 w-full aspect-1 flex flex-col justify-start items-center text-xs md:text-sm p-1 hover:bg-slate-100">
+                <div class="flex flex-row justify-center items-center rounded-full aspect-1 p-1 bg-transparent" data-calendar-target="date"></div>
+            </div>
+        </td>
+    </template>
+    <template data-calendar-target="otherMonthDayTemplate">
+        <td class="border" data-calendar-target="day-entry" data-calendar-year-param="" data-calendar-month-param="" data-calendar-date-param="">
+            <div class="text-slate-300 w-full aspect-1 flex flex-col justify-start items-center text-xs md:text-sm p-1">
+                <div class="flex flex-row justify-center items-center rounded-full aspect-1 p-1 bg-transparent" data-calendar-target="date"></div>
+            </div>
+        </td>
+    </template>
+    <thead>
+        <tr>
+            <th colspan="7" class="border-slate-200 border">
+                <div class="flex flex-row justify-between w-full py-4 px-4">
+                    <div class="flex flex-row justify-between items-center w-32 md:w-36 h-8">
+                        <button class="text-slate-500 w-3 h-3 md:w-4 md:h-4" data-action="click->calendar#previous">
+                            <svg xmlns="https://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M16 4l-8 8l8 8" fill="none" stroke-linejoin="round" stroke-width="4" stroke-linecap="round" stroke="currentColor" />
+                            </svg>
+                        </button>
+                        <span class="text-slate-600 uppercase text-sm md:text-base" data-calendar-target="currentMonth">
+                        </span>
+                        <button class="text-slate-500 w-3 h-3 md:w-4 md:h-4" data-action="click->calendar#next">
+                            <svg xmlns="https://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M8 4l8 8l-8 8" fill="none" stroke-linejoin="round" stroke-width="4" stroke-linecap="round" stroke="currentColor" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="flex flex-row">
+                        <button class="text-slate-600 bg-gray-100 border shadow-sm round px-2 md:px-4 py-1 rounded text-sm md:text-base" data-action="click->calendar#today">Today</button>
+                    </div>
+                </div>
+            </th>
+        </tr>
+        <tr>
+            <% (0..6).each do |day_of_week| %>
+            <th class="<%= "border-r" if day_of_week == 6 %> border-l font-normal md:font-bold border-slate-200 text-xs text-slate-400 py-1 uppercase"><%= Date::ABBR_DAYNAMES[day_of_week] %></th>
+            <% end %>
+        </tr>
+    </thead>
+    <tbody data-calendar-target="weekList">
+    </tbody>
+</table>

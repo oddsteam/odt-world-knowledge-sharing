@@ -1,0 +1,14 @@
+<%= turbo_frame_tag "me_bio", data: { turbo_cache_control: "no-cache" } do %>
+    <p class="font-normal text-lg mt-2">
+        <%= form_with   url: me_bio_update_path, 
+                        class: "flex flex-row items-center space-x-1", 
+                        data: { 
+                            controller: "form-sensor",
+                            action: "bio:changed->form-sensor#submit"
+                        } do |form| %>
+            <%= render  "shared/editable_label",
+                        text: text,
+                        identifier: "bio" %>
+        <% end %>
+    </p>
+<% end %>

@@ -1,0 +1,5 @@
+<div class="<%= classes[:tab_list] %>" data-controller="tabs-list" data-tabs-list-default-tab-identifier-value="<%= default_tab_identifier %>" data-tabs-list-identifiers-value="<%= h tabs.map { |tab| tab[:identifier] }.to_json  %>" data-tabs-list-classes-value="<%= h classes.to_json%>">
+    <% tabs.each do |tab| %>
+        <%= render tab_template, label: tab[:label], identifier: tab[:identifier], component_class: classes[:tab] %>
+    <% end %>
+</div>

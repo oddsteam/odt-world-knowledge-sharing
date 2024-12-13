@@ -1,0 +1,24 @@
+<div data-controller="editable-label" data-editable-label-identifier-value="<%= identifier %>" data-editable-label-original-value="<%= h(text) %>">
+    <div class="flex flex-row justify-start items-center space-x-1 flex-nowrap cursor-pointer group" data-editable-label-target="textViewer" data-action="click->editable-label#openEditor">
+        <div class="text-gray-500 underline decoration-dotted decoration-gray-300 decoration-2"><%= text %></div>
+        <div class="text-gray-300 h-5 w-5 block">
+            <svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M883.626667 300.373333c16.64-16.64 16.64-44.373333 0-60.16l-99.84-99.84c-15.786667-16.64-43.52-16.64-60.16 0l-78.506667 78.08 160 160M128 736V896h160L759.893333 423.68l-160-160L128 736z" fill="currentColor" /></svg>
+        </div>
+    </div>
+    <div class="inline-flex flex-row items-center rounded-md border shadow-sm border-gray-400 p-0 pr-1 space-x-1" data-editable-label-target="textEditor">
+        <input type="text" name="bio" class="border-none outline-none bg-transparent px-2 py-1 focus:outline-none focus:ring-transparent" value="<%= h(text) %>"  data-editable-label-target="textEditorInput" />
+        <button type="submit" class="text-lime-600 h-6 w-6" data-action="click->editable-label#submit">
+            <svg xmlns="https://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="12" fill="currentColor" />
+                <path d="M7 12l4 4l6 -8" fill="none" stroke-linejoin="round" stroke-width="4" stroke-linecap="round" stroke="white" />
+            </svg>
+        </button>
+        <button class="h-6 w-6 text-red-600" data-action="click->editable-label#openViewer">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="12" fill="currentColor" />
+                <path d="M7 7l10 10" fill="none" stroke-linejoin="round" stroke-width="4" stroke-linecap="round" stroke="white" />
+                <path d="M17 7l-10 10" fill="none" stroke-linejoin="round" stroke-width="4" stroke-linecap="round" stroke="white" />
+            </svg>
+        </button>
+    </div>
+</div>

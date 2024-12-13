@@ -1,8 +1,32 @@
 <%= render :partial => "shared/responsive_navbar", :locals => { active_menu: "profile" } %>
 
-<section class="w-full py-8">
-    <div class="w-full max-w-4xl mx-auto px-4 lg:px-0">
+<section class="w-full py-8 flex flex-col">
+    <div class="flex flex-row w-full lg:max-w-4xl mx-auto px-4 lg:px-0 mb-4">
         <h1 class="text-2xl font-bold text-slate-800">My availability</h1>
-        <%= render :partial => "shared/availability_calendar", :locals => { calendar: @calendar } %>
+    </div>
+    <div class="flex flex-col-reverse gap-y-4 md:grid md:grid-cols-2 md:gap-x-4 w-full lg:max-w-4xl mx-auto px-4 lg:px-0">
+        <div class="col-span-1">
+            <%= render  partial: "mentor_available_date",
+                        locals: {
+                            selected_date: {
+                                wday: Date.current.wday,
+                                date: Date.current.day,
+                                month: Date.current.month, 
+                                year: Date.current.year
+                            }
+                        } %>
+
+            <%#= render  "shared/event_data",
+                        event_name: "availability_calendar:selected",
+                        data_template: "dayjs('${ year }-${ month }-${ date }').format('ddd D MMM YYYY')" %>
+        </div>
+        <div class="col-span-1">
+            <div class="w-full aspect-1">
+                <%= render  "shared/calendar",
+                            month: Date.current.month, 
+                            year: Date.current.year,
+                            identifier: "availability_calendar" %>
+            </div>
+        </div>
     </div>
 </section>
